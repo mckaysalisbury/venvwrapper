@@ -1,14 +1,17 @@
 # venvwrapper
 
-A wrapper around `venv` to manage virtual environments in python.
+A simple wrapper around `venv` to manage virtual environments in python.
 
 I love `virtualenvwrapper`, but I love standards more, and python now has
-`venv` as its standard virtual environment code. But python didn't supply a
+`venv` as its standard virtual environment manager. But python didn't supply a
 wrapper, so I'm making this one, inspired by `virtualenvwrapper`.
 
 ## Installation
 
-None of this actually works yet, these are the goals
+1. Download the repo (it's only three files, and one is this README, and another is the LICENSE)
+2. Put the repo wherever you like.
+3. In your CLI, navigate to the folder in your command line
+4. Execute the command below to add the commands to your CLI
 
 ### Linux
 
@@ -19,7 +22,8 @@ None of this actually works yet, these are the goals
 
 ### Windows
 
-I personally do my python development in [WSL Ubuntu](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+I personally do my python development in [WSL Ubuntu](
+    https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 ## Usage
 
