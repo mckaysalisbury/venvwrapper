@@ -18,7 +18,8 @@ wrapper, so I'm making this one, inspired by `virtualenvwrapper`.
 `echo . $(realpath venvwrapper.sh) >> ~/.bashrc`
 
 ### Mac OS X
-`echo . $(realpath venvwrapper.sh) >> ~/.bash_profile`
+`echo source $(pwd)/venvwrapper.sh >> ~/.zprofile`
+TODO: This works on OSX Catalina but the script does try to detect whether it has been set up properly, and doesn't detect this properly. Just remove the last few lines of the script, if you confirm it manually.
 
 ### Windows
 

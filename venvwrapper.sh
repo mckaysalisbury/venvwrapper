@@ -7,9 +7,9 @@ VENVWRAPPER_CALLER=$_
 # Setup home directory
 if [ -z $1 ]
 then
-    VENVWRAPPERDIRECTORY="$HOME/.venv-wrapper-environments"
+    VENVWRAPPERDIRECTORY="$HOME/.venvwrapper-environments"
     echo "Using $VENVWRAPPERDIRECTORY as the location for virtual environments"
-    echo "(pass a parameter to the venv-wrapper script to override)"
+    echo "(pass a parameter to the venvwrapper script to override)"
 else
     VENVWRAPPERDIRECTORY=$1
     shift
@@ -17,7 +17,7 @@ fi
 
 # Ensure directory creation priviliges
 mkdir -p "$VENVWRAPPERDIRECTORY"
-echo "venv-wrapper is configured and running"
+echo "venvwrapper is configured and running"
 
 # Set up all functions
 
@@ -69,6 +69,9 @@ lsvenv() {
     ls $VENVWRAPPERDIRECTORY $*
 }
 
+# The checks below try to predict whether the script is set up correctly.
+# They work correctly on Ubuntu, feel free to remove the checks if they're firing incorrectly.
+# TODO: They don't work properly in OSX Catalina.
 
 # Check for inclusion in .bashrc script
 if [[ $VENVWRAPPER_CALLER != *"bash-completion"* ]]
