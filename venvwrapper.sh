@@ -2,8 +2,6 @@
 # Summary: Setup the wrapper functions into the current shell
 # Usage: . venvwrapper.sh
 
-VENVWRAPPER_CALLER=$_
-
 # Setup home directory
 if [ -z $1 ]
 then
@@ -70,19 +68,9 @@ lsvenv() {
 }
 
 # The checks below try to predict whether the script is set up correctly.
-# They work correctly on Ubuntu, feel free to remove the checks if they're firing incorrectly.
-# TODO: They don't work properly in OSX Catalina.
-
-# Check for inclusion in .bashrc script
-if [[ $VENVWRAPPER_CALLER != *"bash-completion"* ]]
-then
-    echo ""
-    echo "You probably want this run in your '.bashrc' script."
-    echo "echo . $(realpath $BASH_SOURCE) $VENVWRAPPERDIRECTORY >> ~/.bashrc"
-fi
-
-# Check for whether it's been sourced
-if [ $0 == $BASH_SOURCE ]
+# Check for whether it's been sourced (works for bash and zsh)
+if { [ -n "$BASH_VERSION" ] && [ "$0" == "$BASH_SOURCE" ]; } || \
+   { [ -n "$ZSH_VERSION" ] && [[ "$ZSH_EVAL_CONTEXT" != *:file* ]]; }
 then
     echo ""
     echo "This should be run sourced. I don't think it was run sourced. (prepend 'source' or '.')"
